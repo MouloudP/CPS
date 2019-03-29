@@ -164,28 +164,13 @@ end)
 
 function Fonction.SetPingPos(ply,key)
 
-  if not PoliceSysteme.Config.ActivePing then
-
-    if table.HasValue(PoliceSysteme.Config.TeamPolice, ply:Team()) then
-
-      if key == KEY_G then
-
-        if ply:GetNWVector("Vector::PingPolice") == Vector(0,0,0) then
-
-          ply:SetNWVector("Vector::PingPolice",ply:GetEyeTrace().HitPos)
-
-        else
-
-          ply:SetNWVector("Vector::PingPolice",Vector(0,0,0))
-
-        end
-
-      end
-
+  if not PoliceSysteme.Config.ActivePing and table.HasValue(PoliceSysteme.Config.TeamPolice, ply:Team()) and key == KEY_G then
+    if ply:GetNWVector("Vector::PingPolice") == Vector(0,0,0) then
+      ply:SetNWVector("Vector::PingPolice",ply:GetEyeTrace().HitPos)
+    else
+      ply:SetNWVector("Vector::PingPolice",Vector(0,0,0))
     end
-
   end
-
 end
 
 hook.Add("PlayerButtonDown","PlayerButtonDown::Test123132",Fonction.SetPingPos)

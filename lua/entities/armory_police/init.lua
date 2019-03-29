@@ -38,7 +38,7 @@ function ENT:Initialize()
 		ang:RotateAroundAxis(ang:Right(), 180)
 		ang:RotateAroundAxis(ang:Forward(), 270)
 
-		for k,v in pairs(tbl.weap) do
+		for _,v in pairs(tbl.weap) do
 
 			local weap = ents.Create("weapon_armory")
 			weap:SetPos(v.pos)
@@ -100,7 +100,6 @@ function ENT:AcceptInput(_,_,called)
 			net.Send(called)
 
 		end
-		
 end
 
 function ENT:OpenCaisse()

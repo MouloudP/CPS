@@ -28,7 +28,7 @@ hook.Add("InitPostEntity","InitPostEntityLoadFile",function()
 
     end
 
-    local files = file.Find("police_systeme/shared/*.lua","LUA")
+    files = file.Find("police_systeme/shared/*.lua","LUA")
 
     for _, file in ipairs( files ) do
 
@@ -37,7 +37,7 @@ hook.Add("InitPostEntity","InitPostEntityLoadFile",function()
 
     end
 
-    local files = file.Find("police_systeme/server/*.lua","LUA")
+    files = file.Find("police_systeme/server/*.lua","LUA")
 
     for _, file in ipairs( files ) do
 
@@ -45,7 +45,7 @@ hook.Add("InitPostEntity","InitPostEntityLoadFile",function()
 
     end
 
-    local files = file.Find("police_systeme/client/*.lua","LUA")
+    files = file.Find("police_systeme/client/*.lua","LUA")
 
     for _, file in ipairs( files ) do
 
@@ -67,7 +67,7 @@ hook.Add("InitPostEntity","InitPostEntityLoadFile",function()
 
     end
 
-    local files = file.Find("police_systeme/config/*.lua","LUA")
+    files = file.Find("police_systeme/config/*.lua","LUA")
 
     for _, file in ipairs( files ) do
 
@@ -75,7 +75,7 @@ hook.Add("InitPostEntity","InitPostEntityLoadFile",function()
 
     end
 
-    local files = file.Find("police_systeme/shared/*.lua","LUA")
+    files = file.Find("police_systeme/shared/*.lua","LUA")
 
     for _, file in ipairs( files ) do
 
