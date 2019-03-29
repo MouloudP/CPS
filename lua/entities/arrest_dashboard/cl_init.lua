@@ -3,53 +3,53 @@ include("shared.lua")
 local Mate = {
 
   [1] = Material("materials/police_systeme/prison1.png"),
-	[2] = Material("materials/police_systeme/prison2.png"),
+  [2] = Material("materials/police_systeme/prison2.png"),
   [3] = Material("materials/police_systeme/fleche1.png"),
 }
 
 local function BoutonSetPos(ent,x,y,w,h)
 
-	local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
+  local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
 
-	pos1 = Vector(mins.x, mins.y + w/10 + x/10, ent:OBBCenter().z + 7)
+  pos1 = Vector(mins.x, mins.y + w/10 + x/10, ent:OBBCenter().z + 7)
   pos2 = Vector(mins.x + h/10 + y/10, mins.y , ent:OBBCenter().z - 7)
 
-	pos1 = ent:LocalToWorld(pos1)
+  pos1 = ent:LocalToWorld(pos1)
   pos2 = ent:LocalToWorld(pos2)
 
-	return ent:LocalToWorld(Vector(maxs.x, mins.y + maxs.y/2 , ent:OBBCenter().z - 10))
+  return ent:LocalToWorld(Vector(maxs.x, mins.y + maxs.y/2 , ent:OBBCenter().z - 10))
 
 end
 
 local function BoutonPosMaxX(ent)
 
-	local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
+  local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
 
-	return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x, maxs.y , ent:OBBCenter().z + 10)), ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, mins.y + maxs.y , ent:OBBCenter().z - 10)))
+  return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x, maxs.y , ent:OBBCenter().z + 10)), ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, mins.y + maxs.y , ent:OBBCenter().z - 10)))
 
 end
 
 local function BoutonPosMinX(ent)
 
-	local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
+  local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
 
-	return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x, mins.y, ent:OBBCenter().z+10)), ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, mins.y + maxs.y , ent:OBBCenter().z - 10)))
+  return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x, mins.y, ent:OBBCenter().z+10)), ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, mins.y + maxs.y , ent:OBBCenter().z - 10)))
 
 end
 
 local function BoutonPosMaxY(ent)
 
-	local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
+  local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
 
-	return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, maxs.y , ent:OBBCenter().z + 10)), ent:LocalToWorld(Vector(maxs.x, mins.y/2 + maxs.y , ent:OBBCenter().z - 10)))
+  return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, maxs.y , ent:OBBCenter().z + 10)), ent:LocalToWorld(Vector(maxs.x, mins.y/2 + maxs.y , ent:OBBCenter().z - 10)))
 
 end
 
 local function BoutonPosMinY(ent)
 
-	local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
+  local mins, maxs = ent:OBBMins() , ent:OBBMaxs()
 
-	return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, mins.y, ent:OBBCenter().z+10)), ent:LocalToWorld(Vector(maxs.x, mins.y + maxs.y/2 , ent:OBBCenter().z - 10)))
+  return LocalPlayer():GetEyeTrace().HitPos:WithinAABox(ent:LocalToWorld(Vector(mins.x/1.01 + maxs.x, mins.y, ent:OBBCenter().z+10)), ent:LocalToWorld(Vector(maxs.x, mins.y + maxs.y/2 , ent:OBBCenter().z - 10)))
 
 end
 
@@ -98,9 +98,9 @@ function ENT:Draw()
 
       end
 
-			surface.SetDrawColor(255,255,255)
-			surface.SetMaterial(Mate[2])
-			surface.DrawTexturedRect(125,-340/3.5,475/2,475/2)
+      surface.SetDrawColor(255,255,255)
+      surface.SetMaterial(Mate[2])
+      surface.DrawTexturedRect(125,-340/3.5,475/2,475/2)
 
 
       if BoutonPosMaxX(self) then    -- "Arrest"
@@ -127,9 +127,9 @@ function ENT:Draw()
 
       end
 
-			surface.SetDrawColor(255,255,255)
-			surface.SetMaterial(Mate[1])
-			surface.DrawTexturedRect(-370,-340/3.5,475/2,475/2)
+      surface.SetDrawColor(255,255,255)
+      surface.SetMaterial(Mate[1])
+      surface.DrawTexturedRect(-370,-340/3.5,475/2,475/2)
 
 
       if BoutonPosMaxY(self) then    -- "<"
@@ -204,10 +204,10 @@ function ENT:Draw()
 
 
       draw.RoundedBox(0,-950/4,-340,950/2,475/2,Color(255, 255, 255))
-			draw.RoundedBox(0,-475,-340/3.295,950,475/25,Color(0, 0, 0))
+      draw.RoundedBox(0,-475,-340/3.295,950,475/25,Color(0, 0, 0))
       draw.RoundedBox(0,-475,-340,950,475/25,Color(0, 0, 0))
       draw.RoundedBox(0,-475,118,950,475/25,Color(0, 0, 0))
-			draw.RoundedBox(0,-475 - 950/50,-340,950/50,475,Color(0, 0, 0))
+      draw.RoundedBox(0,-475 - 950/50,-340,950/50,475,Color(0, 0, 0))
       draw.RoundedBox(0,475,-340,950/50,475,Color(0, 0, 0))
 
       if #self.TablePlayer >= 1 and IsValid(self.TablePlayer[id]) then

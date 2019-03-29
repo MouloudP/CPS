@@ -91,13 +91,13 @@ end)
 
 net.Receive("Armory::CloseBox",function()
 
-	local ent = net.ReadEntity()
+  local ent = net.ReadEntity()
 
-	if IsValid(ent) and ent:GetClass() == "armory_police" and ent:GetModel() == "models/items/ammocrate_ar2.mdl" then
+  if IsValid(ent) and ent:GetClass() == "armory_police" and ent:GetModel() == "models/items/ammocrate_ar2.mdl" then
 
-		ent:CloseCaisse()
+    ent:CloseCaisse()
 
-	end
+  end
 
 end)
 
